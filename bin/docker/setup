@@ -1,0 +1,36 @@
+#!/bin/bash
+####################################################
+# Rebuild MEI Local Docker Environment
+#
+# Usage:
+# bin/setup [OPTIONS]
+# Options:
+#  --clean      Delete all Docker images from your system, causing a complete rebuild from scratch
+#
+
+set -e
+
+if ! [ -x "$(command -v docker-compose)" ]; then
+  echo 'Error: docker-compose is not installed.' >&2
+  echo 'See readme and https://docs.docker.com/compose/install/ for instructions.' >&2
+  echo 'You may be able to install it with:\npip3 install docker-compose' >&2
+  exit 1
+fi
+
+docker-compose down
+
+if [ "$1" = "--clean" ]; then
+  echo 'Completely pruning your Docker system in 5 seconds. Will cause slow full rebuild. Press Ctrl+C to cancel...'
+  sleep 5 && (yes | docker system prune --all)
+fi
+
+if [ "$1" = "--reset" ]; then
+  echo 'Deleting and recreating Dockerized databases in 5 seconds. Press Ctrl+C to save data.'
+  sleep 5 && (docker-compose rm --force --stop database elasticsearch)
+fi
+
+docker-compose down && \
+docker-compose build && \
+docker-compose run rails bin/setup
+
+echo "Done building environment. Run 'docker-compose up' to run your dev server."

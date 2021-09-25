@@ -1,0 +1,12 @@
+#!/bin/bash
+####################################################
+# Run Bundle in Local Docker Environment
+#
+# Usage:
+# bin/docker/bundle [OPTIONS]
+# Options
+# Any option supported by bundle, is passed through
+
+set -e
+
+docker-compose run rails bundle $@
