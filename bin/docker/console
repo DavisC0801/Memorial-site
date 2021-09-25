@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Boot a Rails console within a new Docker rails image
+set -e
+
+docker-compose up -d rails 2> /dev/null
+docker-compose exec rails bundle exec rails c
+

@@ -1,0 +1,12 @@
+#!/bin/bash
+####################################################
+# Run RSPEC Tests Local Docker Environment
+#
+# Usage:
+# bin/docker/bash [OPTIONS]
+# Options
+# Any option supported by bash, is passed through
+
+set -e
+
+docker-compose run rails bash $@
