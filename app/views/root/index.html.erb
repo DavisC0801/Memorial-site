@@ -147,7 +147,6 @@ $(document).ready(function () {
   var $grid = $('#grid-content');
 
   $.fn.revealItems = function ($items) {
-
     var iso = this.data('isotope');
     var itemSelector = iso.options.itemSelector;
     $items.hide();
@@ -156,16 +155,19 @@ $(document).ready(function () {
       var $item = $(image.img).parents(itemSelector);
       var modal = document.getElementById('myModal');
       var modalImg = document.getElementById("img");
+      var body = document.getElementById("body");
       modal.onclick = function() {
         img.className += " out";
         setTimeout(function() {
           modal.style.display = "none";
           img.className = "modal-content";
+          body.className = ""
           }, 400);
         }
       $item.show();
       $item.on('click', function(){
         modal.style.display = "block";
+        body.className = "modal-open";
         modalImg.src = this.childNodes[0].src;
           })
       iso.appended($item);
@@ -257,7 +259,7 @@ $(document).ready(function () {
       $('#grid').width(GridWidth);
     }
   });
-  $(window).scroll(Infinite);
+  // $(window).scroll(Infinite);
   new WOW().init();
 })
 </script>
