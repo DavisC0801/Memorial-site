@@ -1,29 +1,263 @@
-<!-- <h1>Infinite Responsive Grid (Masonry/Isotope) + Reveal animation</h1>
-<h2>Using Animate.css & WOW.js</h2>
-<h3><a href="https://tympanus.net/Development/GridLoadingEffects/index2.html" rel="nofollow">(Inspired from a Tymphanus Codrops Article)</a></h3> --!>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.0/isotope.pkgd.min.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.1.8/imagesloaded.pkgd.min.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+<div id="title"><h1>Joesph Lee Memorial</h1></div>
+<div id="obituary">
+<h2>Joseph M. Lee was born on February 7th, 1936 in Rolla, Missouri. He had a colorful life, filled with adventure. He loved traveling with his wife, Susan Lee, undergoing many great adventures in their motor-home. He was a mechanical engineer with seven U.S. patents. As his mobility declined, he used his engineering prowess to design and modify things to help him move more easily. His intelligence was awe-inspiring, always providing ingenious solutions to problems we didn’t know we had. He never stopped fixing and tinkering with his various projects. He loved working on his motorcycle and truck until he had it just the way he wanted. He loved his “zippy,” an electric trike that he fitted with foot pegs, a backrest, a cane-holder, and a custom suspension solution. Even his trike reflected his need for speed, topping out at 25 miles per hour. When he wasn’t speeding down the road, he would watch Nascar and critique the engineering of their cars. He hardly ever missed a race, and was able to see some of them in person. He had a wealth of stories to share, especially when watching one of his favorite films “Driving Ms. Daisy.” He would tell you about every car in the film from personal experience, having owned many of them during his life. He also enjoyed Casablanca, Second Hand Lion, and especially liked westerns and John Wayne. 
+<br><br>
+Joseph has many relatives who have survived him, and some whom he has joined. He is survived by his wife of 63 years Susan Lee, daughter Katherine Lee, grandchildren Christopher Davis, Aaron Davis, Justin Lee, Meagan Lee, and Devon Seehusen, sister Lorena Reinhart, brother-in-law Charlie Mosteller, and the sister of his heart Lynn Mosteller. He is preceded in death by his parents, Joseph M Lee and Zora Lee, son Joseph M Lee Jr., sisters Lila Chevreaux, Virginia Bowman, Marieta Grace, Wilda Bacile, and brother-in-law Jack Bacile. 
+<br><br>
+Joseph died peacefully on August 7th, 2021 at the age of 85, surrounded by his family. He will always be remembered for the profound impact he made on those that he cared for and the many good memories shared with him. Although we miss him dearly, his legacy will continue to impact those survived by him for the rest of our lives.
+</h2>
+</div>
+
 <div id="SlideMiddle">
-	<div id="nav">
-		<div id="nav-bar">
-			<div id="fluid-left"></div>
-			<div id="fix-content">
-				<div id="nav-bar-filters">
-					<div data-f="*" class="filter-item active"><span>All</span></div>
-					<div data-f=".c0" class="filter-item"><span>Lorem</span></div>
-					<div data-f=".c1" class="filter-item"><span>ipsum</<span></div>
-					<div data-f=".c2" class="filter-item"><span>dolor</span></div>
-					<div data-f=".c3" class="filter-item"><span>sit</span></div>
-					<div data-f=".c4" class="filter-item"><span>amet</span></div>
-					<div data-f=".c5" class="filter-item"><span>consectetur</span></div>
-					<div data-f=".c6" class="filter-item"><span>adipiscing</span></div>
-					<div data-f=".c7" class="filter-item"><span>elit</span></div>
-					<div data-f=".c8" class="filter-item"><span>Phasellus</span></div>
-				</div>
-			</div>
-			<div id="fluid-right"></div>
-		</div>
-	</div>
+  <h3><br>Photo Gallery</h3>
 	<div id="grid">
 		<div id="grid-content">
 		</div>
 	</div>
 </div>
+
+<div id="myModal" class="modal"><img class="modal-content" id='img'><div id="caption"></div>
+
+<script>
+var Imgs = [
+  "images/20140507_103500.jpg",
+  "images/20140610_153709.jpg",
+  "images/20140613_114152.jpg",
+  "images/20140615_132333.jpg",
+  "images/20140618_174713.jpg",
+  "images/20140619_135255.jpg",
+  "images/20140619_140609.jpg",
+  "images/20140622_125313.jpg",
+  "images/20140630_111037.jpg",
+  "images/20140630_111105.jpg",
+  "images/20140719_145827.jpg",
+  "images/20140719_150031.jpg",
+  "images/20140727_085722.jpg",
+  "images/20140817_120402.jpg",
+  "images/20140908_125856.jpg",
+  "images/20140908_130144.jpg",
+  "images/20140908_130524.jpg",
+  "images/20140921_104111.jpg",
+  "images/20141005_113545.jpg",
+  "images/20141013_150901.jpg",
+  "images/20141018_122433.jpg",
+  "images/20141019_125412.jpg",
+  "images/20141112_091326.jpg",
+  "images/20141120_120909.jpg",
+  "images/20141210_115457.jpg",
+  "images/20141231_235923.jpg",
+  "images/20150103_164142.jpg",
+  "images/20150114_133743.jpg",
+  "images/20150114_144349.jpg",
+  "images/20150131_115735.jpg",
+  "images/20150302_123300.jpg",
+  "images/20150324_082253.jpg",
+  "images/20150422_141229.jpg",
+  "images/20150603_124805.jpg",
+  "images/20150603_181105.jpg",
+  "images/20150604_192033.jpg",
+  "images/20150605_084814.jpg",
+  "images/20150605_143520.jpg",
+  "images/20150608_110724.jpg",
+  "images/20150619_131406.jpg",
+  "images/20150924_081304.jpg",
+  "images/20150925_102235.jpg",
+  "images/20150925_123954.jpg",
+  "images/20150926_130919.jpg",
+  "images/20150928_183920.jpg",
+  "images/20150928_184118.jpg",
+  "images/20150928_184148.jpg",
+  "images/20151130_132350.jpg",
+  "images/20160130_162738.jpg",
+  "images/20160131_171756.jpg",
+  "images/20160131_172215.jpg",
+  "images/20160131_174712.jpg",
+  "images/20160131_181519.jpg",
+  "images/20160201_185408.jpg",
+  "images/20160201_185409.jpg",
+  "images/20160205_165258.jpg",
+  "images/20160629_120024.jpg",
+  "images/20160705_135408.jpg",
+  "images/20160705_154836.jpg",
+  "images/20160906_185905.jpg",
+  "images/20161001_203057.jpg",
+  "images/20161001_204303.jpg",
+  "images/20161010_220900.jpg",
+  "images/20170207_172539.jpg",
+  "images/20170504_155745 (2).jpg",
+  "images/20170504_155745.jpg",
+  "images/20170504_155817.jpg",
+  "images/20170720_135811.jpg",
+  "images/20170720_135843.jpg",
+  "images/20170920_152717.jpg",
+  "images/20180206_173341.jpg",
+  "images/20180302_103935.jpg",
+  "images/20180302_104010.jpg",
+  "images/20180302_104040.jpg",
+  "images/20180401_132223.jpg",
+  "images/20180401_132237.jpg",
+  "images/20180412_140839.jpg",
+  "images/20180412_140933.jpg",
+  "images/20180504_184204.jpg",
+  "images/20181225_123858.jpg",
+  "images/20181225_125538.jpg",
+  "images/20190112_175034.jpg",
+  "images/20190204_181734.jpg",
+  "images/20190204_184308.jpg",
+  "images/20190204_184934.jpg",
+  "images/20190502_172530.jpg",
+  "images/20191002_125019.jpg",
+  "images/20191225_122423.jpg",
+  "images/20200206_172100.jpg",
+  "images/20200504_171412.jpg",
+  "images/20200621_170710.jpg",
+  "images/20200621_170720.jpg",
+  "images/20200707_141850.jpg",
+  "images/20200707_142017.jpg",
+  "images/20200808_133938.jpg",
+  "images/20200809_171455.jpg",
+  "images/20200901_114032.jpg",
+  "images/20200904_203607.jpg",
+  "images/20201015_151513.jpg",
+  "images/20201115_145047.jpg",
+  "images/20201126_155804.jpg",
+  "images/20201230_163800.jpg",
+  "images/20201230_165237.jpg",
+  "images/20210204_220636.jpg",
+  "images/20210206_170158.jpg",
+  "images/20210206_170302.jpg",
+  "images/20210209_165135.jpg",
+  "images/20210410_124021.jpg",
+  "images/20210410_145246.jpg",
+  "images/20210411_160758.jpg",
+  "images/Christmas in Colorado (123).jpg",
+  "images/Christmas in Colorado (573).jpg",
+  "images/Christmas in Colorado (625).jpg",
+  "images/KIMG0077.JPG"
+];
+
+$(document).ready(function () {
+  var $grid = $('#grid-content');
+
+  $.fn.revealItems = function ($items) {
+
+    var iso = this.data('isotope');
+    var itemSelector = iso.options.itemSelector;
+    $items.hide();
+    $(this).append($items);
+    $items.imagesLoaded().progress(function (imgLoad, image) {
+      var $item = $(image.img).parents(itemSelector);
+      var modal = document.getElementById('myModal');
+      var modalImg = document.getElementById("img");
+      modal.onclick = function() {
+        img.className += " out";
+        setTimeout(function() {
+          modal.style.display = "none";
+          img.className = "modal-content";
+          }, 400);
+        }
+      $item.show();
+      $item.on('click', function(){
+        modal.style.display = "block";
+        modalImg.src = this.childNodes[0].src;
+          })
+      iso.appended($item);
+    });
+
+    return this;
+  }
+  $grid.isotope({
+    containerStyle: null,
+    masonry: {
+      columnWidth: 300,
+      gutter: 15
+    },
+    itemSelector: '.grid-item',
+    filter: '*',
+    transitionDuration: '0.4s'
+  });
+
+
+  $grid.imagesLoaded().progress(function () {
+    $grid.isotope();
+  })
+
+  /*$grid.imagesLoaded( function() {
+     $grid.isotope({
+      containerStyle: null,
+      masonry:{
+        columnWidth: 300,
+        gutter: 15
+      },
+      itemSelector: '.grid-item',
+      filter : '*',
+      transitionDuration: '0.4s'
+      });
+      });*/
+      
+      function shuffleArray(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+      }
+      
+      function GenerateItems() {
+        var items = '';
+        shuffleArray(Imgs)
+        for (var i = 0; i < Imgs.length; i++) {
+          items += '<div class="grid-item c' + i + ' wow fadeInUp" ><img id=img'+i+' src="' + Imgs[i % Imgs.length] + '" /></div>';
+        }
+    return $(items);
+  }
+  
+  function Infinite(e) {
+    if ((e.type == 'scroll') || e.type == 'click') {
+      var doc = document.documentElement;
+      var top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+      var bottom = top + $(window).height();
+      var docBottom = $(document).height();
+      
+      if (bottom + 50 >= docBottom) {
+        $grid.revealItems(GenerateItems());
+      }
+    }
+  }
+  
+  $grid.revealItems(GenerateItems());
+
+  
+  $(window).resize(function () {
+    var margin = 40;
+    var padding = 15;
+    var columns = 0;
+    var cWidth = 300;
+    var windowWidth = $(window).width();
+
+    var overflow = false;
+    while (!overflow) {
+      columns++;
+      var WidthTheory = ((cWidth * columns) + ((columns + 1) * padding) + margin);
+      if (WidthTheory > windowWidth)
+        overflow = true;
+    }
+    if (columns > 1)
+      columns--;
+
+    var GridWidth = ((cWidth * columns) + ((columns + 1) * padding) + margin);
+
+    if (GridWidth != $('#grid').width()) {
+      $('#grid').width(GridWidth);
+    }
+  });
+  $(window).scroll(Infinite);
+  new WOW().init();
+})
+</script>
