@@ -13,3 +13,199 @@
  *= require_tree .
  *= require_self
  */
+
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 100;
+  src: url(https://fonts.gstatic.com/s/lato/v20/S6u-w4BMUTPHjxsIPx-oPCc.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/lato/v20/S6u_w4BMUTPHjxsI9w2_Gwfo.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/lato/v20/S6u8w4BMUTPHjxsAXC-v.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/lato/v20/S6u_w4BMUTPHjxsI5wq_Gwfo.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 100;
+  src: url(https://fonts.gstatic.com/s/lato/v20/S6u8w4BMUTPHh30AXC-v.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/lato/v20/S6u9w4BMUTPHh7USSwiPHA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/lato/v20/S6uyw4BMUTPHjx4wWw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/lato/v20/S6u9w4BMUTPHh6UVSwiPHA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+  src: url(https://fonts.gstatic.com/s/lato/v20/S6u9w4BMUTPHh50XSwiPHA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Poiret One';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/poiretone/v9/UqyVK80NJXN4zfRgbdfbo55cUg.ttf) format('truetype');
+}
+img {
+  border: 0;
+  max-width: 100%;
+}
+html,
+body {
+  font-family: 'ptSerif', sans-serif;
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+  background: #e8cebf;
+}
+h1 {
+  font-family: 'Lato', cursive;
+  color: #283747;
+  font-size: 2.5em;
+  text-align: center;
+  transition: all 0.45s;
+}
+h2 {
+  text-align: center;
+  font-family: 'ptSerif', cursive;
+  font-size: 1.5em;
+  color: #283747;
+}
+h3 {
+  text-align: center;
+  font-family: 'Poiret One', cursive;
+  font-size: 2em;
+  color: #283747;
+}
+#obituary{
+  padding-left: 9%;
+  padding-right: 9%;
+}
+#SlideMiddle {
+  display: block;
+  background: #eee2dc;
+  width: 100%;
+  min-height: 100%;
+}
+#SlideMiddle #grid {
+  margin: 40px auto;
+  width: 960px;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+@media screen and (min-width: 1315px) {
+  #SlideMiddle #grid {
+    width: 1275px;
+  }
+}
+@media screen and (min-width: 1630px) {
+  #SlideMiddle #grid {
+    width: 1590px;
+  }
+}
+@media screen and (min-width: 1945px) {
+  #SlideMiddle #grid {
+    width: 1905px;
+  }
+}
+@media screen and (min-width: 2260px) {
+  #SlideMiddle #grid {
+    width: 2220px;
+  }
+}
+@media screen and (min-width: 2575px) {
+  #SlideMiddle #grid {
+    width: 2535px;
+  }
+}
+#SlideMiddle #grid-content {
+  position: relative;
+}
+#SlideMiddle #grid-content .grid-item {
+  margin-bottom: 15px;
+  padding: 3px;
+  background-color: #283747;
+  width: 300px;
+}
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 80%;
+}
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+.out {
+  animation-name: zoom-out;
+  animation-duration: 0.6s;
+}
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(1)}
+    to {-webkit-transform:scale(2)}
+}
+@keyframes zoom {
+    from {transform:scale(0.4)}
+    to {transform:scale(1)}
+}
+@keyframes zoom-out {
+    from {transform:scale(1)}
+    to {transform:scale(0)}
+}
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
