@@ -1,0 +1,21 @@
+name: Reset Dev Deployment Branch To Main
+on:
+  workflow_dispatch:
+    inputs:
+      feature-branch:
+        description: 'Reset Dev Deployment Branch to Main'
+        required: true
+  schedule:
+    - cron: "59 23 * * 0"
+jobs:
+  reset:
+    runs-on: self-hosted
+    name: Runner
+    steps:
+      - name: Reset dev branch to main
+        uses: nicksnell/action-reset-repo@master
+        with:
+          github_token: ${{ secrets.KINROBOT_TOKEN }}
+          reset_branch: dev-auto-deploy
+          base_branch: 'main'
+
